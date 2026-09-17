@@ -1,5 +1,4 @@
 
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -81,13 +80,15 @@
     font-size:0.9rem; padding:9px 16px; background:var(--ink); color:var(--paper);
     text-decoration:none; border-radius:var(--radius);
   }
-  .nav-social{display:flex; gap:16px; align-items:center;}
+  .nav-social{display:flex; gap:12px; align-items:center;}
   .nav-social a{
-    color:var(--ink-soft); text-decoration:none; font-size:0.9rem;
-    border-bottom:1px solid transparent; padding-bottom:2px;
-    transition:border-color .18s ease, color .18s ease;
+    display:flex; align-items:center; justify-content:center;
+    width:34px; height:34px; border-radius:50%;
+    color:var(--ink-soft); border:1px solid var(--line);
+    transition:border-color .18s ease, color .18s ease, background .18s ease;
   }
-  .nav-social a:hover{color:var(--ink); border-color:var(--ink);}
+  .nav-social a:hover{color:var(--ink); border-color:var(--ink); background:var(--panel);}
+  .nav-social svg{width:16px; height:16px; fill:currentColor;}
   .nav-toggle{display:none; background:none; border:1px solid var(--line); border-radius:4px; padding:7px 10px; cursor:pointer;}
   .nav-toggle span, .nav-toggle span::before, .nav-toggle span::after{
     content:""; display:block; width:18px; height:2px; background:var(--ink); position:relative;
@@ -226,7 +227,6 @@
     .nav-links a{padding:14px 28px; border-bottom:1px solid var(--line); width:100%;}
     .nav-toggle{display:flex; flex-direction:column; justify-content:center;}
     .nav-cta{display:none;}
-    .nav-social{display:none;}
     .hero-inner{grid-template-columns:1fr;}
     .about-grid{grid-template-columns:1fr; gap:32px;}
     .skill-groups{grid-template-columns:1fr;}
@@ -252,12 +252,14 @@
       <li><a href="#experience">Experience</a></li>
       <li><a href="#education">Education</a></li>
       <li><a href="#contact">Contact</a></li>
-      <li><a href="https://www.linkedin.com/in/mughalengineer/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
-      <li><a href="https://instagram.com/mughalengineer" target="_blank" rel="noopener noreferrer">Instagram</a></li>
     </ul>
     <div class="nav-social">
-      <a href="https://www.linkedin.com/in/mughalengineer/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-      <a href="https://instagram.com/mughalengineer" target="_blank" rel="noopener noreferrer">Instagram</a>
+      <a href="https://www.linkedin.com/in/mughalengineer/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+        <svg viewBox="0 0 24 24"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.38-1.85 3.61 0 4.28 2.38 4.28 5.47v6.27zM5.34 7.43a2.07 2.07 0 1 1 0-4.13 2.07 2.07 0 0 1 0 4.13zM7.12 20.45H3.55V9h3.57v11.45z"/></svg>
+      </a>
+      <a href="https://instagram.com/mughalengineer" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+        <svg viewBox="0 0 24 24"><path d="M12 8.6a3.4 3.4 0 1 0 0 6.8 3.4 3.4 0 0 0 0-6.8zm0 5.6a2.2 2.2 0 1 1 0-4.4 2.2 2.2 0 0 1 0 4.4zM15.6 8.1a.8.8 0 1 1 0-1.6.8.8 0 0 1 0 1.6z"/><path d="M17.34 3H6.66A3.66 3.66 0 0 0 3 6.66v10.68A3.66 3.66 0 0 0 6.66 21h10.68A3.66 3.66 0 0 0 21 17.34V6.66A3.66 3.66 0 0 0 17.34 3zm2.28 14.34a2.29 2.29 0 0 1-2.28 2.28H6.66a2.29 2.29 0 0 1-2.28-2.28V6.66a2.29 2.29 0 0 1 2.28-2.28h10.68a2.29 2.29 0 0 1 2.28 2.28v10.68z"/></svg>
+      </a>
     </div>
     <a class="nav-cta" href="mailto:awais2313@gmail.com">Email me</a>
     <button class="nav-toggle" id="navToggle" aria-label="Toggle menu"><span></span></button>

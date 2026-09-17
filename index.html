@@ -1,1 +1,503 @@
 
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Muhammad Awais — WordPress Developer</title>
+<meta name="description" content="Muhammad Awais — WordPress, Shopify &amp; SEO developer in Islamabad. 5+ years turning designs into fast, custom-built websites.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F3F4F8;
+    --paper-2:#E9EBF3;
+    --ink:#12131C;
+    --ink-soft:#5A5D72;
+    --blue:#00C2A8;
+    --clay:#FF5C4D;
+    --line:#DEE1EA;
+    --panel:#FFFFFF;
+    --radius:4px;
+    --maxw:1120px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Public Sans', -apple-system, sans-serif;
+    font-size:16px;
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,.display{
+    font-family:'Space Grotesk', sans-serif;
+    font-weight:600;
+    letter-spacing:-0.01em;
+    margin:0;
+  }
+  a{color:inherit;}
+  img{max-width:100%;display:block;}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px;}
+
+  /* ---------- Background grid (blueprint motif) ---------- */
+  .grid-bg{
+    position:absolute; inset:0;
+    background-image:
+      linear-gradient(var(--line) 1px, transparent 1px),
+      linear-gradient(90deg, var(--line) 1px, transparent 1px);
+    background-size:64px 64px;
+    opacity:0.35;
+    mask-image: radial-gradient(ellipse 80% 70% at 60% 20%, black 40%, transparent 90%);
+    -webkit-mask-image: radial-gradient(ellipse 80% 70% at 60% 20%, black 40%, transparent 90%);
+    pointer-events:none;
+  }
+
+  /* ---------- Header ---------- */
+  header{
+    position:sticky; top:0; z-index:50;
+    background:rgba(243,244,248,0.86);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:18px 28px;
+    max-width:var(--maxw); margin:0 auto;
+  }
+  .nav-name{font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:1.05rem;}
+  .nav-links{display:flex; gap:28px; list-style:none; margin:0; padding:0;}
+  .nav-links a{
+    text-decoration:none; font-size:0.94rem; color:var(--ink-soft);
+    padding-bottom:2px; border-bottom:1px solid transparent;
+    transition:border-color .18s ease, color .18s ease;
+  }
+  .nav-links a:hover{color:var(--ink); border-color:var(--ink);}
+  .nav-cta{
+    font-size:0.9rem; padding:9px 16px; background:var(--ink); color:var(--paper);
+    text-decoration:none; border-radius:var(--radius);
+  }
+  .nav-social{display:flex; gap:16px; align-items:center;}
+  .nav-social a{
+    color:var(--ink-soft); text-decoration:none; font-size:0.9rem;
+    border-bottom:1px solid transparent; padding-bottom:2px;
+    transition:border-color .18s ease, color .18s ease;
+  }
+  .nav-social a:hover{color:var(--ink); border-color:var(--ink);}
+  .nav-toggle{display:none; background:none; border:1px solid var(--line); border-radius:4px; padding:7px 10px; cursor:pointer;}
+  .nav-toggle span, .nav-toggle span::before, .nav-toggle span::after{
+    content:""; display:block; width:18px; height:2px; background:var(--ink); position:relative;
+  }
+  .nav-toggle span::before{position:absolute; top:-6px;}
+  .nav-toggle span::after{position:absolute; top:6px;}
+
+  /* ---------- Hero ---------- */
+  .hero{position:relative; overflow:hidden; padding:96px 0 72px;}
+  .hero-inner{position:relative; z-index:2; display:grid; grid-template-columns:1.25fr 0.9fr; gap:56px; align-items:end;}
+  .kicker{
+    display:flex; align-items:center; gap:10px;
+    font-size:0.92rem; color:var(--ink-soft); margin-bottom:22px;
+  }
+  .kicker .dot{width:7px; height:7px; border-radius:50%; background:var(--clay); flex:none;}
+  h1.headline{
+    font-size:clamp(2.4rem, 5.1vw, 4rem);
+    line-height:1.06;
+    max-width:11.5ch;
+  }
+  .headline .accent{color:var(--blue);}
+  .hero-sub{
+    margin-top:22px; max-width:46ch; color:var(--ink-soft); font-size:1.08rem;
+  }
+  .hero-cta{display:flex; gap:14px; margin-top:34px; flex-wrap:wrap;}
+  .btn{
+    display:inline-flex; align-items:center; gap:8px;
+    padding:13px 22px; text-decoration:none; font-size:0.96rem; font-weight:500;
+    border-radius:var(--radius); border:1px solid var(--ink);
+  }
+  .btn-primary{background:var(--ink); color:var(--paper);}
+  .btn-primary:hover{background:var(--blue); border-color:var(--blue);}
+  .btn-ghost{background:transparent; color:var(--ink);}
+  .btn-ghost:hover{background:var(--panel);}
+
+  .hero-card{
+    background:var(--panel); border:1px solid var(--line); border-radius:var(--radius);
+    padding:26px; font-size:0.94rem;
+  }
+  .hero-card .loc{
+    display:flex; gap:8px; align-items:baseline; color:var(--ink-soft); margin-bottom:18px; font-size:0.9rem;
+  }
+  .stack-row{
+    display:flex; justify-content:space-between; padding:12px 0; border-top:1px solid var(--line);
+  }
+  .stack-row:first-of-type{border-top:none;}
+  .stack-row .num{font-family:'Space Grotesk',sans-serif; font-size:1.5rem;}
+  .stack-row .label{color:var(--ink-soft); font-size:0.86rem; max-width:16ch; text-align:right;}
+
+  /* ---------- Section shell ---------- */
+  section{padding:76px 0;}
+  .section-head{display:flex; justify-content:space-between; align-items:flex-end; gap:24px; margin-bottom:44px; border-bottom:1px solid var(--line); padding-bottom:20px;}
+  .section-head h2{font-size:clamp(1.7rem, 3vw, 2.3rem);}
+  .section-head .idx{color:var(--ink-soft); font-size:0.92rem; white-space:nowrap;}
+  .lede{max-width:62ch; color:var(--ink-soft); font-size:1.05rem;}
+
+  /* ---------- About ---------- */
+  .about-grid{display:grid; grid-template-columns:1fr 1fr; gap:56px;}
+  .about-text p{color:var(--ink-soft); margin:0 0 16px;}
+  .about-text p:last-child{margin-bottom:0;}
+  .fact-list{list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:16px;}
+  .fact-list li{display:grid; grid-template-columns:120px 1fr; gap:16px; padding-bottom:16px; border-bottom:1px solid var(--line); font-size:0.95rem;}
+  .fact-list li:last-child{border-bottom:none; padding-bottom:0;}
+  .fact-list .k{color:var(--ink-soft);}
+  .fact-list .v{font-weight:500;}
+
+  /* ---------- Skills ---------- */
+  .skill-groups{display:grid; grid-template-columns:repeat(2, 1fr); gap:2px; background:var(--line); border:1px solid var(--line);}
+  .skill-card{background:var(--panel); padding:28px;}
+  .skill-card h3{font-size:1.05rem; margin-bottom:14px;}
+  .chip-row{display:flex; flex-wrap:wrap; gap:8px;}
+  .chip{
+    font-size:0.85rem; padding:6px 12px; border:1px solid var(--line); border-radius:var(--radius);
+    color:var(--ink-soft); background:var(--paper);
+  }
+
+  /* ---------- Experience timeline ---------- */
+  .timeline{position:relative; margin-top:8px;}
+  .timeline::before{
+    content:""; position:absolute; left:8px; top:8px; bottom:8px; width:1px; background:var(--line);
+  }
+  .role{position:relative; padding:0 0 44px 40px;}
+  .role:last-child{padding-bottom:0;}
+  .role::before{
+    content:""; position:absolute; left:2px; top:5px; width:13px; height:13px; border-radius:50%;
+    background:var(--paper); border:2px solid var(--ink);
+  }
+  .role.current::before{background:var(--clay); border-color:var(--clay);}
+  .role-head{display:flex; justify-content:space-between; align-items:baseline; flex-wrap:wrap; gap:8px; margin-bottom:6px;}
+  .role-head h3{font-size:1.18rem;}
+  .role-dates{font-size:0.88rem; color:var(--ink-soft); white-space:nowrap;}
+  .role-company{color:var(--blue); font-size:0.95rem; margin-bottom:12px; font-weight:500;}
+  .role ul{margin:0; padding-left:18px; color:var(--ink-soft); font-size:0.95rem;}
+  .role li{margin-bottom:6px;}
+  .role li:last-child{margin-bottom:0;}
+
+  /* ---------- Education ---------- */
+  .edu-grid{display:grid; grid-template-columns:repeat(3, 1fr); gap:2px; background:var(--line); border:1px solid var(--line);}
+  .edu-card{background:var(--panel); padding:26px;}
+  .edu-card .year{color:var(--ink-soft); font-size:0.86rem; margin-bottom:10px;}
+  .edu-card h3{font-size:1.05rem; margin-bottom:6px;}
+  .edu-card p{margin:0; color:var(--ink-soft); font-size:0.92rem;}
+
+  /* ---------- Contact / footer ---------- */
+  .contact{background:var(--ink); color:var(--paper);}
+  .contact .section-head{border-color:rgba(243,244,248,0.2);}
+  .contact .idx, .contact .lede{color:rgba(243,244,248,0.65);}
+  .contact-grid{display:grid; grid-template-columns:1.2fr 1fr; gap:48px; align-items:start;}
+  .contact h2.headline{font-size:clamp(2rem, 4vw, 2.9rem); max-width:12ch; line-height:1.1;}
+  .contact-links{list-style:none; margin:26px 0 0; padding:0; display:flex; flex-direction:column; gap:2px;}
+  .contact-links li a{
+    display:flex; justify-content:space-between; align-items:center;
+    padding:16px 0; border-top:1px solid rgba(243,244,248,0.18);
+    text-decoration:none; font-size:1.05rem;
+  }
+  .contact-links li:last-child a{border-bottom:1px solid rgba(243,244,248,0.18);}
+  .contact-links .k{color:rgba(243,244,248,0.55); font-size:0.85rem;}
+  footer.bottom{
+    max-width:var(--maxw); margin:0 auto; padding:22px 28px 40px;
+    display:flex; justify-content:space-between; align-items:center; color:rgba(243,244,248,0.5); font-size:0.85rem; flex-wrap:wrap; gap:16px;
+  }
+  .footer-social{display:flex; gap:20px; list-style:none; margin:0; padding:0;}
+  .footer-social a{
+    color:rgba(243,244,248,0.75); text-decoration:none; border-bottom:1px solid transparent; padding-bottom:2px;
+    transition:border-color .18s ease, color .18s ease;
+  }
+  .footer-social a:hover{color:var(--paper); border-color:var(--paper);}
+
+  @media (max-width: 860px){
+    .nav-links{
+      position:absolute; top:100%; left:0; right:0; background:var(--paper);
+      flex-direction:column; gap:0; border-bottom:1px solid var(--line);
+      display:none;
+    }
+    .nav-links.open{display:flex;}
+    .nav-links a{padding:14px 28px; border-bottom:1px solid var(--line); width:100%;}
+    .nav-toggle{display:flex; flex-direction:column; justify-content:center;}
+    .nav-cta{display:none;}
+    .nav-social{display:none;}
+    .hero-inner{grid-template-columns:1fr;}
+    .about-grid{grid-template-columns:1fr; gap:32px;}
+    .skill-groups{grid-template-columns:1fr;}
+    .edu-grid{grid-template-columns:1fr;}
+    .contact-grid{grid-template-columns:1fr; gap:24px;}
+    .fact-list li{grid-template-columns:90px 1fr;}
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{transition:none !important;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <nav class="nav">
+    <div class="nav-name">Muhammad Awais</div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="https://www.linkedin.com/in/mughalengineer/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+      <li><a href="https://instagram.com/mughalengineer" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+    </ul>
+    <div class="nav-social">
+      <a href="https://www.linkedin.com/in/mughalengineer/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      <a href="https://instagram.com/mughalengineer" target="_blank" rel="noopener noreferrer">Instagram</a>
+    </div>
+    <a class="nav-cta" href="mailto:awais2313@gmail.com">Email me</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu"><span></span></button>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="grid-bg"></div>
+  <div class="wrap hero-inner">
+    <div>
+      <div class="kicker"><span class="dot"></span> Islamabad, Pakistan — open to remote &amp; on-site work</div>
+      <h1 class="headline">I turn designs into <span class="accent">WordPress</span> sites that actually perform.</h1>
+      <p class="hero-sub">Five-plus years building, customizing and shipping WordPress and Shopify sites — from pixel-accurate UI conversion to WooCommerce, SEO and the marketing stack that runs behind them.</p>
+      <div class="hero-cta">
+        <a class="btn btn-primary" href="mailto:awais2313@gmail.com">Email me</a>
+        <a class="btn btn-ghost" href="tel:+923325379106">Call +92 332 5379106</a>
+      </div>
+    </div>
+    <div class="hero-card">
+      <div class="loc">📍 Sector-A, DHA-II, Islamabad</div>
+      <div class="stack-row"><span class="num">5+</span><span class="label">years building production WordPress &amp; Shopify sites</span></div>
+      <div class="stack-row"><span class="num">6</span><span class="label">teams shipped for — freelance to corporate</span></div>
+      <div class="stack-row"><span class="num">2018</span><span class="label">BSCS graduate, Arid University</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>About</h2>
+      <span class="idx">Summary</span>
+    </div>
+    <div class="about-grid">
+      <div class="about-text">
+        <p>I'm a results-driven WordPress developer with over five years of experience designing, customizing and maintaining high-performance websites. My focus is UI-to-WordPress conversion, custom functionality, WooCommerce builds, SEO and responsive design.</p>
+        <p>I've worked across freelance projects and corporate teams, delivering scalable, user-focused web solutions with WordPress, PHP, JavaScript and modern frontend tooling — and I stay close to the marketing stack (CRM, analytics, automation) that keeps a site earning its keep after launch.</p>
+      </div>
+      <ul class="fact-list">
+        <li><span class="k">Based in</span><span class="v">Sector-A, DHA-II, Islamabad</span></li>
+        <li><span class="k">Focus</span><span class="v">WordPress · Shopify · SEO</span></li>
+        <li><span class="k">Email</span><span class="v">awais2313@gmail.com</span></li>
+        <li><span class="k">Phone</span><span class="v">(+92) 332 5379106</span></li>
+        <li><span class="k">Education</span><span class="v">BS Computer Science, 2018</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Skills</h2>
+      <span class="idx">What I work with</span>
+    </div>
+    <div class="skill-groups">
+      <div class="skill-card">
+        <h3>WordPress development</h3>
+        <div class="chip-row">
+          <span class="chip">Theme customization</span>
+          <span class="chip">Custom plugins</span>
+          <span class="chip">BuddyBoss</span>
+          <span class="chip">LearnDash</span>
+          <span class="chip">WPML</span>
+          <span class="chip">ACF fields</span>
+          <span class="chip">Custom post types</span>
+          <span class="chip">UI/UX to WordPress conversion</span>
+          <span class="chip">PHP</span>
+          <span class="chip">Landing page builds</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <h3>Frontend</h3>
+        <div class="chip-row">
+          <span class="chip">HTML5</span>
+          <span class="chip">CSS3</span>
+          <span class="chip">JavaScript</span>
+          <span class="chip">jQuery</span>
+          <span class="chip">Bootstrap</span>
+          <span class="chip">Angular</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <h3>E-commerce &amp; LMS</h3>
+        <div class="chip-row">
+          <span class="chip">Shopify</span>
+          <span class="chip">WooCommerce</span>
+          <span class="chip">LMS platforms</span>
+          <span class="chip">App integrations</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <h3>SEO, analytics &amp; marketing ops</h3>
+        <div class="chip-row">
+          <span class="chip">On &amp; off-page SEO</span>
+          <span class="chip">Google Analytics / GA4</span>
+          <span class="chip">Google Tag Manager</span>
+          <span class="chip">HubSpot</span>
+          <span class="chip">Mailchimp</span>
+          <span class="chip">Responsive &amp; adaptive design</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Experience</h2>
+      <span class="idx">2018 — 2026</span>
+    </div>
+    <div class="timeline">
+
+      <div class="role current">
+        <div class="role-head"><h3>Web Developer</h3><span class="role-dates">Apr 2025 – Mar 2026</span></div>
+        <div class="role-company">Vorksol Pvt Ltd</div>
+        <ul>
+          <li>Converted UI/UX designs into WordPress websites and built custom post types with ACF-based functionality</li>
+          <li>Implemented WPML for multilingual sites and delivered ongoing custom functionality and performance optimization</li>
+          <li>Integrated HubSpot and automated CRM workflows, managing weekly and monthly contact and email reporting</li>
+          <li>Extracted and managed lead data from email marketing campaigns</li>
+          <li>Set up Google Tag Manager — tags, triggers and variables — with GA4 integration and recurring reporting</li>
+          <li>Automated AI tooling across the website using Trello, Vercel and other tools; integrated Mailchimp</li>
+        </ul>
+      </div>
+
+      <div class="role">
+        <div class="role-head"><h3>WordPress Developer</h3><span class="role-dates">May 2021 – 2022</span></div>
+        <div class="role-company">Stiff Tech (Remote)</div>
+        <ul>
+          <li>Converted UI/UX designs into WordPress websites</li>
+          <li>Built custom post types and ACF-based functionality, with WPML for multilingual sites</li>
+          <li>Delivered custom functionality and site optimization</li>
+        </ul>
+      </div>
+
+      <div class="role">
+        <div class="role-head"><h3>WordPress Developer</h3><span class="role-dates">Oct 2023 – Jan 2025</span></div>
+        <div class="role-company">Dexter Code LLC</div>
+        <ul>
+          <li>Developed LMS websites using BuddyBoss &amp; LearnDash</li>
+          <li>Integrated WPML and built advanced custom post types, fields and sliders</li>
+          <li>Handled app integrations</li>
+        </ul>
+      </div>
+
+      <div class="role">
+        <div class="role-head"><h3>WordPress Developer</h3><span class="role-dates">May 2022 – Aug 2023</span></div>
+        <div class="role-company">Hybrid Media Work</div>
+        <ul>
+          <li>Converted UI mockups into WordPress sites and built responsive websites</li>
+          <li>Worked with ACF fields and WooCommerce integration</li>
+        </ul>
+      </div>
+
+      <div class="role">
+        <div class="role-head"><h3>WordPress Developer</h3><span class="role-dates">Mar 2021 – May 2022</span></div>
+        <div class="role-company">Emaila Pvt. Ltd.</div>
+        <ul>
+          <li>Customized themes and plugins</li>
+          <li>Worked on on-page and off-page SEO optimization</li>
+          <li>Implemented Google Analytics</li>
+        </ul>
+      </div>
+
+      <div class="role">
+        <div class="role-head"><h3>Web Developer</h3><span class="role-dates">Oct 2018 – May 2019</span></div>
+        <div class="role-company">Increate Tech</div>
+        <ul>
+          <li>Performed WordPress theme customization</li>
+          <li>Built dynamic sites with PHP, HTML, CSS and JavaScript</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="education">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Education</h2>
+      <span class="idx">Background</span>
+    </div>
+    <div class="edu-grid">
+      <div class="edu-card">
+        <div class="year">2018</div>
+        <h3>BS Computer Science</h3>
+        <p>Arid University, Rawalpindi</p>
+      </div>
+      <div class="edu-card">
+        <div class="year">2014</div>
+        <h3>Intermediate (ICS)</h3>
+        <p>FG Sir Syed College</p>
+      </div>
+      <div class="edu-card">
+        <div class="year">2012</div>
+        <h3>Matriculation</h3>
+        <p>Fazaia Inter College</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap">
+    <div class="section-head">
+      <h2 class="headline">Let's build something that ships.</h2>
+      <span class="idx">Get in touch</span>
+    </div>
+    <div class="contact-grid">
+      <p class="lede">Looking for a WordPress or Shopify build, a site migration, or someone to own the SEO and analytics behind it? I'm available for freelance and full-time work.</p>
+      <ul class="contact-links">
+        <li><a href="mailto:awais2313@gmail.com"><span>awais2313@gmail.com</span><span class="k">Email</span></a></li>
+        <li><a href="tel:+923325379106"><span>(+92) 332 5379106</span><span class="k">Phone</span></a></li>
+        <li><a href="#top"><span>Sector-A, DHA-II, Islamabad</span><span class="k">Location</span></a></li>
+      </ul>
+    </div>
+  </div>
+  <footer class="bottom">
+    <span>Muhammad Awais — WordPress · Shopify · SEO</span>
+    <ul class="footer-social">
+      <li><a href="https://www.linkedin.com/in/mughalengineer/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+      <li><a href="https://instagram.com/mughalengineer" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+    </ul>
+    <span>&copy; 2026</span>
+  </footer>
+</section>
+
+<script>
+  document.getElementById('navToggle').addEventListener('click', function(){
+    document.getElementById('navLinks').classList.toggle('open');
+  });
+  document.querySelectorAll('.nav-links a').forEach(function(link){
+    link.addEventListener('click', function(){
+      document.getElementById('navLinks').classList.remove('open');
+    });
+  });
+</script>
+
+</body>
+</html>
